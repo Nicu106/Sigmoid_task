@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jupyter:
+    image: jupyter/scipy-notebook:latest  # Jupyter image with popular ML/science libraries
+    container_name: jupyter-ml
+    ports:
+      - "8888:8888"  # Maps Jupyter notebook to your local machine
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped
